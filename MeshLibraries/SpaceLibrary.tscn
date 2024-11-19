@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cctng23llls02"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd527"]
+albedo_color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ad4sq"]
+material = SubResource("StandardMaterial3D_sd527")
+size = Vector3(4, 0.1, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gpsxg"]
+data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, -0.05, 2, -2, -0.05, 2, 2, 0.05, -2, -2, 0.05, -2, 2, -0.05, -2, -2, 0.05, -2, -2, -0.05, -2, 2, -0.05, -2, 2, 0.05, 2, 2, 0.05, -2, 2, -0.05, 2, 2, 0.05, -2, 2, -0.05, -2, 2, -0.05, 2, -2, 0.05, -2, -2, 0.05, 2, -2, -0.05, -2, -2, 0.05, 2, -2, -0.05, 2, -2, -0.05, -2, 2, 0.05, 2, -2, 0.05, 2, 2, 0.05, -2, -2, 0.05, 2, -2, 0.05, -2, 2, 0.05, -2, -2, -0.05, 2, 2, -0.05, 2, -2, -0.05, -2, 2, -0.05, 2, 2, -0.05, -2, -2, -0.05, -2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqgxh"]
+albedo_color = Color(0.569057, 0.313189, 0.15206, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0lwwe"]
+material = SubResource("StandardMaterial3D_vqgxh")
+size = Vector3(4, 0.1, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gpsva"]
+data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, -0.05, 2, -2, -0.05, 2, 2, 0.05, -2, -2, 0.05, -2, 2, -0.05, -2, -2, 0.05, -2, -2, -0.05, -2, 2, -0.05, -2, 2, 0.05, 2, 2, 0.05, -2, 2, -0.05, 2, 2, 0.05, -2, 2, -0.05, -2, 2, -0.05, 2, -2, 0.05, -2, -2, 0.05, 2, -2, -0.05, -2, -2, 0.05, 2, -2, -0.05, 2, -2, -0.05, -2, 2, 0.05, 2, -2, 0.05, 2, 2, 0.05, -2, -2, 0.05, 2, -2, 0.05, -2, 2, 0.05, -2, -2, -0.05, 2, 2, -0.05, 2, -2, -0.05, -2, 2, -0.05, 2, 2, -0.05, -2, -2, -0.05, -2)
+
+[node name="SpaceLibrary" type="Node3D"]
+
+[node name="FreeSpace" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ad4sq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FreeSpace"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FreeSpace/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gpsxg")
+
+[node name="TurretBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38707, 0, 0)
+mesh = SubResource("BoxMesh_0lwwe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TurretBase"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TurretBase/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gpsva")
